@@ -1,6 +1,6 @@
 const http = require('http');
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8080');
 
 const server = http.createServer((req, res) => {
     if(req.url === '/') {
@@ -22,7 +22,7 @@ server.on('connection', (socket) => {
 
 server.listen(port);
 
-console.log(`Rev1.1 - Listening on port ${port}...`);
+console.log(`Rev1.2 - Listening on port ${port}...`);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
