@@ -22,7 +22,7 @@ server.on('connection', (socket) => {
 
 server.listen(port);
 
-console.log(`Listening on port ${port}...`);
+console.log(`Rev1.1 - Listening on port ${port}...`);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
