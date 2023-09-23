@@ -1,9 +1,11 @@
 const http = require('http');
 
+var port = normalizePort(process.env.PORT || '3000');
+
 const server = http.createServer((req, res) => {
     if(req.url === '/') {
         //console.log('New connection...');
-        res.write('Hello World');
+        res.write('Hello World ' + new Date().toLocaleString());
         res.end();    
     }
 
@@ -18,7 +20,22 @@ server.on('connection', (socket) => {
     console.log('New connection at', new Date().toLocaleString());
 });
 
-server.listen(3000);
+server.listen(port);
 
-console.log('Listening on port 3000...');
+console.log(`Listening on port ${port}...`);
 
+function normalizePort(val) {
+    var port = parseInt(val, 10);
+  
+    if (isNaN(port)) {
+      // named pipe
+      return val;
+    }
+  
+    if (port >= 0) {
+      // port number
+      return port;
+    }
+  
+    return false;
+  }
